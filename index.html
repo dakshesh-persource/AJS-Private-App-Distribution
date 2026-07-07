@@ -1,42 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple Business Manager Enrollment Guide | AJS Ltd</title>
+    <title>Apple Business Manager Enrollment Guide</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #080b11;
-            --bg-secondary: #0f1420;
-            --bg-tertiary: #161e2e;
-            --bg-card: rgba(22, 30, 46, 0.7);
-            --bg-card-hover: rgba(30, 41, 59, 0.8);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(41, 151, 255, 0.3);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --text-dim: #64748b;
-            --accent-blue: #2997ff;
-            --accent-blue-glow: rgba(41, 151, 255, 0.15);
-            --accent-purple: #a855f7;
-            --accent-green: #10b981;
-            --accent-green-glow: rgba(16, 185, 129, 0.15);
-            --accent-amber: #f59e0b;
-            --glass-bg: rgba(15, 20, 32, 0.75);
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 10px 25px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 20px 50px -10px rgba(0, 0, 0, 0.7);
-            --radius-sm: 8px;
-            --radius-md: 14px;
-            --radius-lg: 20px;
-            --radius-xl: 28px;
-            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        [data-theme="light"] {
             --bg-primary: #f8fafc;
             --bg-secondary: #ffffff;
             --bg-tertiary: #f1f5f9;
@@ -57,6 +29,11 @@
             --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -73,8 +50,8 @@
             transition: background-color 0.3s ease, color 0.3s ease;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 15% 15%, rgba(41, 151, 255, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.06) 0%, transparent 40%);
+                radial-gradient(circle at 15% 15%, rgba(0, 113, 227, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(124, 58, 237, 0.03) 0%, transparent 40%);
             background-attachment: fixed;
         }
 
@@ -92,9 +69,9 @@
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 3rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -189,76 +166,12 @@
 
         /* Layout */
         .container {
-            max-width: 1000px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 2.5rem 1.5rem 5rem;
+            padding: 2.5rem 3rem 5rem;
         }
 
-        /* Personalization Toolbar */
-        .personalize-bar {
-            background: linear-gradient(135deg, var(--bg-card), rgba(41, 151, 255, 0.05));
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 1rem 1.25rem;
-            margin-bottom: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-sm);
-        }
 
-        .personalize-info {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .personalize-info svg {
-            color: var(--accent-blue);
-            flex-shrink: 0;
-        }
-
-        .personalize-text h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .personalize-text p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .personalize-inputs {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .input-group {
-            position: relative;
-        }
-
-        .custom-input {
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 0.45rem 0.85rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.85rem;
-            font-family: inherit;
-            outline: none;
-            transition: var(--transition);
-            width: 220px;
-        }
-
-        .custom-input:focus {
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px var(--accent-blue-glow);
-        }
 
         /* Hero Header */
         .hero {
@@ -509,8 +422,8 @@
 
         /* Callout Box (Why is this required) */
         .callout-box {
-            background: linear-gradient(135deg, rgba(41, 151, 255, 0.08), rgba(168, 85, 247, 0.05));
-            border: 1px solid rgba(41, 151, 255, 0.25);
+            background: linear-gradient(135deg, rgba(0, 113, 227, 0.06), rgba(124, 58, 237, 0.04));
+            border: 1px solid rgba(0, 113, 227, 0.15);
             border-radius: var(--radius-lg);
             padding: 2rem;
             display: flex;
@@ -529,7 +442,7 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(41, 151, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
         }
 
         .callout-content h4 {
@@ -547,9 +460,9 @@
 
         .highlight-badge {
             display: inline-block;
-            background: rgba(41, 151, 255, 0.15);
+            background: rgba(0, 113, 227, 0.08);
             color: var(--accent-blue);
-            border: 1px solid rgba(41, 151, 255, 0.3);
+            border: 1px solid rgba(0, 113, 227, 0.2);
             padding: 0.2rem 0.6rem;
             border-radius: 4px;
             font-size: 0.85rem;
@@ -662,33 +575,12 @@
             color: var(--accent-blue);
         }
 
-        .copy-btn {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            color: var(--text-muted);
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
 
-        .copy-btn:hover {
-            background: var(--accent-blue);
-            color: white;
-            border-color: var(--accent-blue);
-        }
 
         /* Lifecycle Timeline */
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 100%;
             margin: 2rem auto 0;
             padding-left: 2.5rem;
         }
@@ -696,7 +588,7 @@
         .timeline::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: 20px;
             bottom: 0;
             left: 15px;
             width: 2px;
@@ -727,15 +619,15 @@
             justify-content: center;
             font-weight: 700;
             font-size: 0.85rem;
-            box-shadow: 0 0 10px rgba(41, 151, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 113, 227, 0.2);
             z-index: 2;
         }
 
         .timeline-item:last-child .timeline-dot {
             border-color: var(--accent-green);
             color: var(--accent-green);
-            background: var(--accent-green-glow);
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+            background: var(--bg-secondary);
+            box-shadow: 0 0 15px rgba(5, 150, 105, 0.25);
         }
 
         .timeline-content {
@@ -769,7 +661,7 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            max-width: 850px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
@@ -831,7 +723,7 @@
             color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.7;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-top: 1px solid var(--border-color);
             padding-top: 1rem;
         }
 
@@ -841,8 +733,8 @@
 
         /* Free Guarantee Banner */
         .guarantee-banner {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(41, 151, 255, 0.1));
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(0, 113, 227, 0.08));
+            border: 1px solid rgba(5, 150, 105, 0.2);
             border-radius: var(--radius-lg);
             padding: 2rem;
             text-align: center;
@@ -865,69 +757,7 @@
             font-size: 1.05rem;
         }
 
-        /* Support Footer Box */
-        .support-box {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-xl);
-            padding: 3rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
 
-        .support-box::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(to right, var(--accent-blue), var(--accent-purple), var(--accent-green));
-        }
-
-        .support-box h3 {
-            font-size: 1.75rem;
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-        }
-
-        .support-box p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            max-width: 500px;
-            margin: 0 auto 1.75rem;
-        }
-
-        .support-signature {
-            display: inline-block;
-            text-align: left;
-            background: var(--bg-tertiary);
-            padding: 1rem 1.75rem;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border-color);
-        }
-
-        .support-signature .regards {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.25rem;
-        }
-
-        .support-signature .company {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--text-main);
-        }
-
-        .support-signature .team {
-            font-size: 0.9rem;
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
 
         /* Footer */
         footer {
@@ -974,7 +804,7 @@
                 background: white !important;
                 color: black !important;
             }
-            .navbar, .personalize-bar, .btn, .copy-btn, .toast, .no-print {
+            .navbar, .btn, .copy-btn, .toast, .no-print {
                 display: none !important;
             }
             .container {
@@ -982,7 +812,7 @@
                 padding: 0 !important;
                 margin: 0 !important;
             }
-            .card, .step-card, .letter-box, .callout-box, .support-box, .faq-item {
+            .card, .step-card, .letter-box, .callout-box, .faq-item {
                 border: 1px solid #ccc !important;
                 box-shadow: none !important;
                 background: white !important;
@@ -1000,15 +830,15 @@
         /* Responsive */
         @media (max-width: 768px) {
             .nav-container {
-                padding: 0 1rem;
+                padding: 0 1.5rem;
             }
             .brand span {
                 display: none;
             }
             .container {
-                padding: 1.5rem 1rem 3rem;
+                padding: 1.5rem 1.5rem 3rem;
             }
-            .letter-box, .support-box {
+            .letter-box {
                 padding: 1.5rem;
             }
             .callout-box {
@@ -1024,17 +854,7 @@
                 height: 26px;
                 font-size: 0.75rem;
             }
-            .personalize-bar {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .personalize-inputs {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .custom-input {
-                width: 100%;
-            }
+
         }
     </style>
 </head>
@@ -1058,14 +878,6 @@
                 <span class="brand-badge">Client Guide</span>
             </a>
             <div class="nav-actions">
-                <button class="btn-icon" id="themeToggle" title="Toggle Light/Dark Theme">
-                    <svg id="moonIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                    <svg id="sunIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                </button>
-                <button class="btn btn-secondary no-print" onclick="window.print()">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-                    <span>Print Guide</span>
-                </button>
                 <a href="#steps" class="btn btn-primary no-print">
                     <span>Start Setup</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -1076,31 +888,12 @@
 
     <main class="container">
 
-        <!-- Interactive Personalization Toolbar -->
-        <div class="personalize-bar no-print">
-            <div class="personalize-info">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                <div class="personalize-text">
-                    <h4>Personalize This Document</h4>
-                    <p>Enter your organization details to update all templates and letter fields instantly.</p>
-                </div>
-            </div>
-            <div class="personalize-inputs">
-                <div class="input-group">
-                    <input type="text" id="clientNameInput" class="custom-input" placeholder="Client Name (e.g. John Doe)">
-                </div>
-                <div class="input-group">
-                    <input type="text" id="companyNameInput" class="custom-input" placeholder="Company (e.g. ABC Engineering)">
-                </div>
-            </div>
-        </div>
-
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-badges">
                 <span class="badge badge-blue">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    Official Apple Framework
+                    Apple Enterprise Framework
                 </span>
                 <span class="badge badge-green">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
@@ -1111,30 +904,25 @@
                     5-Minute Registration
                 </span>
             </div>
-            <h1>Apple Business Manager<br>Enrollment Request</h1>
-            <p class="subtitle">Action Required: Secure registration and authorization for enterprise iOS app distribution in compliance with Apple's latest guidelines.</p>
+            <h1>Apple Business Manager<br>Enrollment Guide</h1>
+            <p class="subtitle">Secure registration and authorization for enterprise iOS app distribution in compliance with Apple's latest guidelines.</p>
         </section>
 
-        <!-- Executive Letter / Message -->
+        <!-- Document Overview -->
         <section class="letter-box">
             <div class="letter-header">
                 <div class="letter-subject">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                    <span>Subject: Action Required: Apple Business Manager Registration for iOS App Access</span>
-                </div>
-                <div class="letter-meta">
-                    FROM: AJS Ltd Support Team
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <span>Overview: Apple Business Manager Integration</span>
                 </div>
             </div>
             <div class="letter-body">
-                <p>Dear <span class="client-highlight" id="clientNameDisplay">[Client Name]</span>,</p>
-                <p>We hope you are doing well.</p>
-                <p>To distribute our iOS application securely in accordance with Apple's latest App Store requirements, Apple requires organizations using business applications like ours to access them through <strong>Apple Business Manager (ABM)</strong>.</p>
-                <p>As a result, your organization will need to create a <strong>free Apple Business Manager account</strong> and provide us with your <strong>Organization ID</strong>.</p>
+                <p>To distribute our iOS application securely and in compliance with Apple's latest App Store requirements, client organizations must access private business applications through <strong>Apple Business Manager (ABM)</strong>.</p>
+                <p>To enable access, your company must register for a <strong>free Apple Business Manager account</strong> and share your <strong>Organization ID</strong> with us.</p>
             </div>
         </section>
 
-        <!-- Why is this required? (Callout box incorporating the requested correction) -->
+        <!-- Why is this required? (Callout box explaining Apple Business Manager requirement) -->
         <section>
             <div class="callout-box">
                 <div class="callout-icon">
@@ -1142,11 +930,38 @@
                 </div>
                 <div class="callout-content">
                     <h4>Why is this required?</h4>
-                    <p>Apple has updated its App Store policies for business applications. Since our application is designed for company-managed engineer accounts, we must ensure appropriate private enterprise distribution.</p>
-                    <p style="margin-top: 0.75rem; padding: 0.85rem 1.1rem; background: rgba(0,0,0,0.25); border-left: 3px solid var(--accent-blue); border-radius: 4px; font-style: italic;">
-                        "Based on Apple's App Review feedback for our application, we are adopting Apple Business Manager as the distribution method for iOS users."
+                    <p>Based on Apple's app review determination, our application was rejected for public App Store distribution because it is classified as a <strong>B2B application for specific client organizations</strong>, not a public consumer app.</p>
+                    
+                    <div style="margin-top: 1.25rem; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+                        <h5 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            Why Apple rejected public listing:
+                        </h5>
+                        <ul style="list-style: none; padding-left: 0; display: grid; gap: 0.6rem;">
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.925rem; color: var(--text-muted);">
+                                <span style="color: var(--accent-blue); font-weight: bold; flex-shrink: 0; line-height: 1.2;">•</span>
+                                <span><strong>Manual Onboarding:</strong> Client companies are manually onboarded by our team.</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.925rem; color: var(--text-muted);">
+                                <span style="color: var(--accent-blue); font-weight: bold; flex-shrink: 0; line-height: 1.2;">•</span>
+                                <span><strong>No Self-Creation:</strong> Engineers cannot create their own accounts (accounts are created by the client company).</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.925rem; color: var(--text-muted);">
+                                <span style="color: var(--accent-blue); font-weight: bold; flex-shrink: 0; line-height: 1.2;">•</span>
+                                <span><strong>Exclusive Audience:</strong> Only employees of client companies can use the app.</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.925rem; color: var(--text-muted);">
+                                <span style="color: var(--accent-blue); font-weight: bold; flex-shrink: 0; line-height: 1.2;">•</span>
+                                <span><strong>No Public Functionality:</strong> A random person downloading the app cannot use it.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p style="margin-top: 1.25rem; padding: 0.85rem 1.1rem; background: var(--bg-tertiary); border-left: 3px solid var(--accent-blue); border-radius: 4px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
+                        To Apple, these parameters mean the app is intended for a limited set of organizations, which falls under <a href="https://developer.apple.com/app-store/review/guidelines/#business" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); font-weight: 700; text-decoration: underline; transition: var(--transition);">App Store Review Guideline 3.2 – Business</a>. Consequently, private distribution via Apple Business Manager is the only permitted distribution path.
                     </p>
-                    <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+
+                    <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
                         <span class="highlight-badge">✓ Secure Access</span>
                         <span class="highlight-badge">✓ Company-Controlled Distribution</span>
                         <span class="highlight-badge">✓ Employee-Only Access</span>
@@ -1163,7 +978,7 @@
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                     What is Apple Business Manager?
                 </h2>
-                <p class="section-subtitle">Apple's official web-based portal for organizations to securely manage apps and device ecosystems.</p>
+                <p class="section-subtitle">Apple's standard web-based portal for organizations to securely manage apps and device ecosystems.</p>
             </div>
 
             <div class="grid-3">
@@ -1171,7 +986,7 @@
                     <div class="card-icon icon-blue">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                     </div>
-                    <h3>Official Apple Platform</h3>
+                    <h3>Apple Enterprise Platform</h3>
                     <p>Developed and maintained entirely by Apple Inc., ABM is the standard enterprise platform for organizations to manage business applications and devices.</p>
                 </div>
 
@@ -1193,12 +1008,6 @@
             </div>
         </section>
 
-        <!-- Zero Cost Guarantee Banner -->
-        <section class="guarantee-banner">
-            <h3>Is there any cost involved?</h3>
-            <p><strong>No.</strong> There is no charge for creating an account, maintaining it, receiving our application, or assigning it to your employees. Your organization will <strong>not</strong> incur any Apple subscription fees for using Apple Business Manager.</p>
-        </section>
-
         <!-- 3-Step Action Plan -->
         <section id="steps">
             <div class="section-header">
@@ -1217,9 +1026,9 @@
                         <div class="step-number">STEP 1</div>
                         <div class="step-content">
                             <h3>Create Account</h3>
-                            <p>Register for a free Apple Business Manager account via Apple's official registration portal using your organization's work email address.</p>
+                            <p>Register for a free Apple Business Manager account via Apple's registration portal using your organization's work email address.</p>
                             <ul class="card-list">
-                                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Official Apple registration</li>
+                                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Standard Apple registration</li>
                                 <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> No payment info needed</li>
                             </ul>
                         </div>
@@ -1239,25 +1048,15 @@
                             <p>After registration, Apple will provide your organization with an <strong>Organization ID</strong>. Please share your Company Name and Organization ID with us.</p>
                             
                             <div class="template-box">
-                                <button class="copy-btn" onclick="copyTemplate()" title="Copy to clipboard">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                                    <span>Copy</span>
-                                </button>
                                 <div class="template-row">
-                                    <span class="template-label">Company:</span>
-                                    <span class="template-val" id="companyDisplay">ABC Engineering Ltd</span>
+                                    <span class="template-label">Company Name:</span>
+                                    <span class="template-val">ABC Corporation <span style="font-weight: normal; opacity: 0.5; font-size: 0.75rem;">(example)</span></span>
                                 </div>
                                 <div class="template-row">
-                                    <span class="template-label">Org ID:</span>
-                                    <span class="template-val">12345678</span>
+                                    <span class="template-label">Organization ID:</span>
+                                    <span class="template-val">12345678 <span style="font-weight: normal; opacity: 0.5; font-size: 0.75rem;">(example)</span></span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="step-action">
-                            <button class="btn btn-secondary" onclick="copyTemplate()" style="width: 100%; justify-content: center;">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
-                                <span>Copy Format to Send</span>
-                            </button>
                         </div>
                     </div>
 
@@ -1270,11 +1069,6 @@
                             <div style="padding: 1rem; background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-green); margin-top: 1rem;">
                                 <span style="font-weight: 700; color: var(--accent-green); display: block; font-size: 0.9rem;">✓ No Further Action Required</span>
                                 <span style="font-size: 0.85rem; color: var(--text-muted);">Your team can sit back while we handle the distribution setup.</span>
-                            </div>
-                        </div>
-                        <div class="step-action">
-                            <div style="text-align: center; font-size: 0.85rem; color: var(--text-dim); padding: 0.55rem 0;">
-                                Estimated turnaround: &lt; 24 Hours
                             </div>
                         </div>
                     </div>
@@ -1304,7 +1098,7 @@
                 <div class="timeline-item">
                     <div class="timeline-dot">2</div>
                     <div class="timeline-content">
-                        <h4>AJS Authorizes Your Organization</h4>
+                        <h4>We Authorize Your Organization</h4>
                         <p>We link our application directly to your Organization ID in App Store Connect, granting secure private access.</p>
                     </div>
                 </div>
@@ -1318,15 +1112,18 @@
                 <div class="timeline-item">
                     <div class="timeline-dot">4</div>
                     <div class="timeline-content">
-                        <h4>Administrator Assigns App</h4>
-                        <p>Your ABM administrator assigns or makes the application available to authorized engineers.</p>
+                        <h4>Administrator Distributes App (Without MDM)</h4>
+                        <p>Your Apple Business Manager administrator generates free <strong>Redemption Links</strong> inside the portal and distributes them directly to your engineers (via email or chat).</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">No MDM server configuration is required.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot">✓</div>
                     <div class="timeline-content" style="border-color: rgba(16, 185, 129, 0.4); background: linear-gradient(to right, var(--bg-card), rgba(16, 185, 129, 0.05));">
                         <h4 style="color: var(--accent-green);">Engineers Install & Log In</h4>
-                        <p>Engineers install the app and log in using the exact same credentials already provided by your company. <strong>No changes are required to engineer accounts.</strong></p>
+                        <p>Engineers click their individual redemption link on their iOS device, which opens the App Store to download and install the app.</p>
+                        <p style="margin-top: 0.5rem;">They then log in using the exact same credentials already provided by your company.</p>
+                        <p style="margin-top: 0.5rem; font-weight: 600;">No changes are required to engineer accounts.</p>
                     </div>
                 </div>
             </div>
@@ -1398,7 +1195,7 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            <strong>No. MDM is completely optional.</strong> Apple Business Manager works perfectly without an MDM solution. While you can connect an MDM if your company uses one (such as Jamf, Intune, or Kandji), it is not a requirement to receive and distribute our application.
+                            <strong>No. MDM is not required.</strong> Apple Business Manager works perfectly without an MDM solution. Your administrator can distribute the application using free <strong>Redemption Links</strong> generated directly in the portal. While you can connect an MDM if your company uses one, it is completely optional.
                         </div>
                     </div>
                 </div>
@@ -1415,32 +1212,11 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Will this affect Android users?</span>
-                        <div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <strong>No.</strong> This requirement applies exclusively to the iOS application distributed through Apple's ecosystem. Android users and distribution remain completely unaffected.
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </section>
 
-        <!-- Need Assistance Footer Box -->
-        <section class="support-box">
-            <h3>Need Assistance?</h3>
-            <p>If you need assistance creating an Apple Business Manager account or locating your Organization ID, our team will be happy to guide you through the process.</p>
-            
-            <div class="support-signature">
-                <div class="regards">Thank you for your cooperation &bull; Regards,</div>
-                <div class="company">AJS Ltd</div>
-                <div class="team">Support Team</div>
-            </div>
-        </section>
+
 
     </main>
 
@@ -1458,25 +1234,6 @@
 
     <!-- JavaScript for Logic & Interactions -->
     <script>
-        // Theme Toggle Logic
-        const themeToggleBtn = document.getElementById('themeToggle');
-        const moonIcon = document.getElementById('moonIcon');
-        const sunIcon = document.getElementById('sunIcon');
-        const htmlElement = document.documentElement;
-
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlElement.setAttribute('data-theme', newTheme);
-            
-            if (newTheme === 'light') {
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'block';
-            } else {
-                moonIcon.style.display = 'block';
-                sunIcon.style.display = 'none';
-            }
-        });
 
         // FAQ Accordion Logic
         function toggleFaq(element) {
@@ -1497,34 +1254,6 @@
             }
         }
 
-        // Live Document Personalization Logic
-        const clientInput = document.getElementById('clientNameInput');
-        const companyInput = document.getElementById('companyNameInput');
-        const clientDisplay = document.getElementById('clientNameDisplay');
-        const companyDisplay = document.getElementById('companyDisplay');
-
-        clientInput.addEventListener('input', (e) => {
-            const val = e.target.value.trim();
-            clientDisplay.textContent = val ? val : '[Client Name]';
-        });
-
-        companyInput.addEventListener('input', (e) => {
-            const val = e.target.value.trim();
-            companyDisplay.textContent = val ? val : 'ABC Engineering Ltd';
-        });
-
-        // Copy Template to Clipboard
-        function copyTemplate() {
-            const comp = companyDisplay.textContent;
-            const textToCopy = `Company Name:\n${comp}\n\nOrganization ID:\n[Please insert your 8-digit Apple Org ID here]`;
-
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                showToast('Format copied to clipboard!');
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-                showToast('Failed to copy text.');
-            });
-        }
 
         function showToast(message) {
             const toast = document.getElementById('toast');
