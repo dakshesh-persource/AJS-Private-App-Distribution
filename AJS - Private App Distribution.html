@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Business Manager Enrollment Guide | AJS Ltd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #080b11;
+            --bg-secondary: #0f1420;
+            --bg-tertiary: #161e2e;
+            --bg-card: rgba(22, 30, 46, 0.7);
+            --bg-card-hover: rgba(30, 41, 59, 0.8);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(41, 151, 255, 0.3);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --accent-blue: #2997ff;
+            --accent-blue-glow: rgba(41, 151, 255, 0.15);
+            --accent-purple: #a855f7;
+            --accent-green: #10b981;
+            --accent-green-glow: rgba(16, 185, 129, 0.15);
+            --accent-amber: #f59e0b;
+            --glass-bg: rgba(15, 20, 32, 0.75);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 10px 25px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 50px -10px rgba(0, 0, 0, 0.7);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f1f5f9;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-card-hover: rgba(255, 255, 255, 1);
+            --border-color: rgba(148, 163, 184, 0.2);
+            --border-hover: rgba(0, 113, 227, 0.4);
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-dim: #94a3b8;
+            --accent-blue: #0071e3;
+            --accent-blue-glow: rgba(0, 113, 227, 0.1);
+            --accent-purple: #7c3aed;
+            --accent-green: #059669;
+            --accent-green-glow: rgba(5, 150, 105, 0.1);
+            --accent-amber: #d97706;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(41, 151, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.06) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Top Navigation & Utility Bar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: var(--glass-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.85rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            padding: 0.35rem 0.65rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 10px rgba(41, 151, 255, 0.3);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-icon {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-icon:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            padding: 0.55rem 1.1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), #1d4ed8);
+            color: white;
+            box-shadow: 0 4px 14px rgba(41, 151, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px rgba(41, 151, 255, 0.45);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 5rem;
+        }
+
+        /* Personalization Toolbar */
+        .personalize-bar {
+            background: linear-gradient(135deg, var(--bg-card), rgba(41, 151, 255, 0.05));
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.25rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .personalize-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .personalize-info svg {
+            color: var(--accent-blue);
+            flex-shrink: 0;
+        }
+
+        .personalize-text h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .personalize-text p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .personalize-inputs {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .custom-input {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.45rem 0.85rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-family: inherit;
+            outline: none;
+            transition: var(--transition);
+            width: 220px;
+        }
+
+        .custom-input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px var(--accent-blue-glow);
+        }
+
+        /* Hero Header */
+        .hero {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
+        .hero-badges {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.8rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .badge-blue {
+            background: var(--accent-blue-glow);
+            color: var(--accent-blue);
+            border: 1px solid rgba(41, 151, 255, 0.2);
+        }
+
+        .badge-green {
+            background: var(--accent-green-glow);
+            color: var(--accent-green);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .badge-purple {
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--accent-purple);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-main) 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Letter Box / Executive Summary */
+        .letter-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(12px);
+        }
+
+        .letter-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple));
+            border-top-left-radius: var(--radius-lg);
+            border-bottom-left-radius: var(--radius-lg);
+        }
+
+        .letter-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .letter-subject {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .letter-meta {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .letter-body {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            line-height: 1.8;
+        }
+
+        .letter-body p {
+            margin-bottom: 1.25rem;
+        }
+
+        .letter-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .client-highlight {
+            color: var(--accent-blue);
+            font-weight: 700;
+            background: var(--accent-blue-glow);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 4.5rem;
+            scroll-margin-top: 100px;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title svg {
+            color: var(--accent-blue);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Grid Cards */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 1.5rem;
+        }
+
+        .icon-blue { background: var(--accent-blue-glow); color: var(--accent-blue); }
+        .icon-green { background: var(--accent-green-glow); color: var(--accent-green); }
+        .icon-purple { background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); }
+        .icon-amber { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .card-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-list li svg {
+            color: var(--accent-green);
+            flex-shrink: 0;
+        }
+
+        /* Callout Box (Why is this required) */
+        .callout-box {
+            background: linear-gradient(135deg, rgba(41, 151, 255, 0.08), rgba(168, 85, 247, 0.05));
+            border: 1px solid rgba(41, 151, 255, 0.25);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            margin-bottom: 2.5rem;
+        }
+
+        .callout-icon {
+            background: var(--accent-blue);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(41, 151, 255, 0.4);
+        }
+
+        .callout-content h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .callout-content p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .highlight-badge {
+            display: inline-block;
+            background: rgba(41, 151, 255, 0.15);
+            color: var(--accent-blue);
+            border: 1px solid rgba(41, 151, 255, 0.3);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* 3-Step Interactive Workflow */
+        .stepper-container {
+            position: relative;
+            margin-top: 2.5rem;
+        }
+
+        .stepper-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .step-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -14px;
+            left: 24px;
+            background: linear-gradient(135deg, var(--accent-blue), #1d4ed8);
+            color: white;
+            font-weight: 800;
+            font-size: 0.85rem;
+            padding: 0.25rem 0.85rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 10px rgba(41, 151, 255, 0.4);
+            letter-spacing: 0.05em;
+        }
+
+        .step-content {
+            margin-top: 0.75rem;
+        }
+
+        .step-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .step-action {
+            margin-top: auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Template Generator / Copy Box */
+        .template-box {
+            background: var(--bg-primary);
+            border: 1px dashed var(--border-hover);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        .template-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .template-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .template-label {
+            color: var(--text-dim);
+        }
+
+        .template-val {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+        }
+
+        /* Lifecycle Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto 0;
+            padding-left: 2.5rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 15px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--accent-green));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.5rem;
+            top: 4px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 0 10px rgba(41, 151, 255, 0.3);
+            z-index: 2;
+        }
+
+        .timeline-item:last-child .timeline-dot {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            background: var(--accent-green-glow);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.5rem;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: var(--border-hover);
+            transform: translateX(6px);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.35rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* FAQ Accordion */
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active {
+            border-color: var(--accent-blue);
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-blue);
+        }
+
+        .faq-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            background: var(--accent-blue-glow);
+            color: var(--accent-blue);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out;
+        }
+
+        .faq-answer-inner {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 1rem;
+        }
+
+        .faq-answer-inner strong {
+            color: var(--text-main);
+        }
+
+        /* Free Guarantee Banner */
+        .guarantee-banner {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(41, 151, 255, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee-banner h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+        }
+
+        .guarantee-banner p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        /* Support Footer Box */
+        .support-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .support-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-purple), var(--accent-green));
+        }
+
+        .support-box h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .support-box p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 500px;
+            margin: 0 auto 1.75rem;
+        }
+
+        .support-signature {
+            display: inline-block;
+            text-align: left;
+            background: var(--bg-tertiary);
+            padding: 1rem 1.75rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .support-signature .regards {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .support-signature .company {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .support-signature .team {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--bg-secondary);
+            color: var(--text-main);
+            border: 1px solid var(--accent-green);
+            padding: 0.85rem 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast svg {
+            color: var(--accent-green);
+        }
+
+        /* Print Styling */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .navbar, .personalize-bar, .btn, .copy-btn, .toast, .no-print {
+                display: none !important;
+            }
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .card, .step-card, .letter-box, .callout-box, .support-box, .faq-item {
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                background: white !important;
+                page-break-inside: avoid;
+            }
+            .hero h1, .section-title {
+                color: black !important;
+                -webkit-text-fill-color: black !important;
+            }
+            .faq-answer {
+                max-height: none !important;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+            .brand span {
+                display: none;
+            }
+            .container {
+                padding: 1.5rem 1rem 3rem;
+            }
+            .letter-box, .support-box {
+                padding: 1.5rem;
+            }
+            .callout-box {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .timeline {
+                padding-left: 1.75rem;
+            }
+            .timeline-dot {
+                left: -1.75rem;
+                width: 26px;
+                height: 26px;
+                font-size: 0.75rem;
+            }
+            .personalize-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .personalize-inputs {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .custom-input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" rx="6" fill="url(#paint0_linear)"/>
+                    <path d="M7 17V7H11.5C12.8807 7 14 8.11929 14 9.5C14 10.8807 12.8807 12 11.5 12H7M7 12H12C13.6569 12 15 13.3431 15 15C15 16.6569 13.6569 18 12 18H7V17Z" fill="white" stroke="white" stroke-width="1.5"/>
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2997FF"/>
+                            <stop offset="1" stop-color="#A855F7"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>AJS Ltd <span style="font-weight: 400; opacity: 0.6;">| App Distribution Portal</span></span>
+                <span class="brand-badge">Client Guide</span>
+            </a>
+            <div class="nav-actions">
+                <button class="btn-icon" id="themeToggle" title="Toggle Light/Dark Theme">
+                    <svg id="moonIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg id="sunIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <button class="btn btn-secondary no-print" onclick="window.print()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                    <span>Print Guide</span>
+                </button>
+                <a href="#steps" class="btn btn-primary no-print">
+                    <span>Start Setup</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Interactive Personalization Toolbar -->
+        <div class="personalize-bar no-print">
+            <div class="personalize-info">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                <div class="personalize-text">
+                    <h4>Personalize This Document</h4>
+                    <p>Enter your organization details to update all templates and letter fields instantly.</p>
+                </div>
+            </div>
+            <div class="personalize-inputs">
+                <div class="input-group">
+                    <input type="text" id="clientNameInput" class="custom-input" placeholder="Client Name (e.g. John Doe)">
+                </div>
+                <div class="input-group">
+                    <input type="text" id="companyNameInput" class="custom-input" placeholder="Company (e.g. ABC Engineering)">
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badges">
+                <span class="badge badge-blue">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    Official Apple Framework
+                </span>
+                <span class="badge badge-green">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    100% Free & Zero MDM Required
+                </span>
+                <span class="badge badge-purple">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    5-Minute Registration
+                </span>
+            </div>
+            <h1>Apple Business Manager<br>Enrollment Request</h1>
+            <p class="subtitle">Action Required: Secure registration and authorization for enterprise iOS app distribution in compliance with Apple's latest guidelines.</p>
+        </section>
+
+        <!-- Executive Letter / Message -->
+        <section class="letter-box">
+            <div class="letter-header">
+                <div class="letter-subject">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    <span>Subject: Action Required: Apple Business Manager Registration for iOS App Access</span>
+                </div>
+                <div class="letter-meta">
+                    FROM: AJS Ltd Support Team
+                </div>
+            </div>
+            <div class="letter-body">
+                <p>Dear <span class="client-highlight" id="clientNameDisplay">[Client Name]</span>,</p>
+                <p>We hope you are doing well.</p>
+                <p>To distribute our iOS application securely in accordance with Apple's latest App Store requirements, Apple requires organizations using business applications like ours to access them through <strong>Apple Business Manager (ABM)</strong>.</p>
+                <p>As a result, your organization will need to create a <strong>free Apple Business Manager account</strong> and provide us with your <strong>Organization ID</strong>.</p>
+            </div>
+        </section>
+
+        <!-- Why is this required? (Callout box incorporating the requested correction) -->
+        <section>
+            <div class="callout-box">
+                <div class="callout-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                </div>
+                <div class="callout-content">
+                    <h4>Why is this required?</h4>
+                    <p>Apple has updated its App Store policies for business applications. Since our application is designed for company-managed engineer accounts, we must ensure appropriate private enterprise distribution.</p>
+                    <p style="margin-top: 0.75rem; padding: 0.85rem 1.1rem; background: rgba(0,0,0,0.25); border-left: 3px solid var(--accent-blue); border-radius: 4px; font-style: italic;">
+                        "Based on Apple's App Review feedback for our application, we are adopting Apple Business Manager as the distribution method for iOS users."
+                    </p>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <span class="highlight-badge">✓ Secure Access</span>
+                        <span class="highlight-badge">✓ Company-Controlled Distribution</span>
+                        <span class="highlight-badge">✓ Employee-Only Access</span>
+                        <span class="highlight-badge">✓ Apple Policy Compliance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What is Apple Business Manager -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    What is Apple Business Manager?
+                </h2>
+                <p class="section-subtitle">Apple's official web-based portal for organizations to securely manage apps and device ecosystems.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon icon-blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Official Apple Platform</h3>
+                    <p>Developed and maintained entirely by Apple Inc., ABM is the standard enterprise platform for organizations to manage business applications and devices.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon icon-green">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3>Completely Free</h3>
+                    <p>There is zero cost to register, maintain an account, receive private applications, or distribute them to your workforce. No Apple subscription is required.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon icon-purple">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Authorized Access Only</h3>
+                    <p>It allows Apple to securely provide proprietary business applications exclusively to verified and authorized client organizations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zero Cost Guarantee Banner -->
+        <section class="guarantee-banner">
+            <h3>Is there any cost involved?</h3>
+            <p><strong>No.</strong> There is no charge for creating an account, maintaining it, receiving our application, or assigning it to your employees. Your organization will <strong>not</strong> incur any Apple subscription fees for using Apple Business Manager.</p>
+        </section>
+
+        <!-- 3-Step Action Plan -->
+        <section id="steps">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    What do we need from you?
+                </h2>
+                <p class="section-subtitle">A straightforward 3-step enrollment process requiring less than 5 minutes of your time.</p>
+            </div>
+
+            <div class="stepper-container">
+                <div class="stepper-grid">
+                    
+                    <!-- Step 1 -->
+                    <div class="step-card">
+                        <div class="step-number">STEP 1</div>
+                        <div class="step-content">
+                            <h3>Create Account</h3>
+                            <p>Register for a free Apple Business Manager account via Apple's official registration portal using your organization's work email address.</p>
+                            <ul class="card-list">
+                                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Official Apple registration</li>
+                                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> No payment info needed</li>
+                            </ul>
+                        </div>
+                        <div class="step-action">
+                            <a href="https://business.apple.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                                <span>Open Portal (business.apple.com)</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card">
+                        <div class="step-number">STEP 2</div>
+                        <div class="step-content">
+                            <h3>Share Organization ID</h3>
+                            <p>After registration, Apple will provide your organization with an <strong>Organization ID</strong>. Please share your Company Name and Organization ID with us.</p>
+                            
+                            <div class="template-box">
+                                <button class="copy-btn" onclick="copyTemplate()" title="Copy to clipboard">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    <span>Copy</span>
+                                </button>
+                                <div class="template-row">
+                                    <span class="template-label">Company:</span>
+                                    <span class="template-val" id="companyDisplay">ABC Engineering Ltd</span>
+                                </div>
+                                <div class="template-row">
+                                    <span class="template-label">Org ID:</span>
+                                    <span class="template-val">12345678</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-action">
+                            <button class="btn btn-secondary" onclick="copyTemplate()" style="width: 100%; justify-content: center;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                                <span>Copy Format to Send</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card">
+                        <div class="step-number">STEP 3</div>
+                        <div class="step-content">
+                            <h3>We Configure Access</h3>
+                            <p>Once we receive your Organization ID, we will instantly configure and authorize your organization in Apple App Store Connect.</p>
+                            <div style="padding: 1rem; background: var(--bg-tertiary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-green); margin-top: 1rem;">
+                                <span style="font-weight: 700; color: var(--accent-green); display: block; font-size: 0.9rem;">✓ No Further Action Required</span>
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">Your team can sit back while we handle the distribution setup.</span>
+                            </div>
+                        </div>
+                        <div class="step-action">
+                            <div style="text-align: center; font-size: 0.85rem; color: var(--text-dim); padding: 0.55rem 0;">
+                                Estimated turnaround: &lt; 24 Hours
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- How employees receive the app -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    How will your employees receive the app?
+                </h2>
+                <p class="section-subtitle">Seamless deployment workflow without disrupting existing engineer workflows or credentials.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">1</div>
+                    <div class="timeline-content">
+                        <h4>Apple Approves Application</h4>
+                        <p>Our application undergoes standard compliance review and is approved by Apple for enterprise distribution.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">2</div>
+                    <div class="timeline-content">
+                        <h4>AJS Authorizes Your Organization</h4>
+                        <p>We link our application directly to your Organization ID in App Store Connect, granting secure private access.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">3</div>
+                    <div class="timeline-content">
+                        <h4>Organization Receives Access</h4>
+                        <p>The application appears inside your Apple Business Manager portal under your custom applications list.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">4</div>
+                    <div class="timeline-content">
+                        <h4>Administrator Assigns App</h4>
+                        <p>Your ABM administrator assigns or makes the application available to authorized engineers.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">✓</div>
+                    <div class="timeline-content" style="border-color: rgba(16, 185, 129, 0.4); background: linear-gradient(to right, var(--bg-card), rgba(16, 185, 129, 0.05));">
+                        <h4 style="color: var(--accent-green);">Engineers Install & Log In</h4>
+                        <p>Engineers install the app and log in using the exact same credentials already provided by your company. <strong>No changes are required to engineer accounts.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Employee Scale & Assurances -->
+        <section>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon icon-amber">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3>Will employees have to pay?</h3>
+                    <p style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">No. Employees pay nothing.</p>
+                    <p>Employees will not pay Apple or anyone else to install the application. Since our application is provided free of charge to your workforce, Apple charges nothing for installation.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon icon-blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Is there any limit on employees?</h3>
+                    <p style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">No limit whatsoever.</p>
+                    <p>Whether your organization has <strong>10 employees, 100 employees, 500 employees, or 5,000+ employees</strong>, Apple Business Manager seamlessly supports assigning the application to all authorized personnel.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    Frequently Asked Questions
+                </h2>
+                <p class="section-subtitle">Quick answers to common questions regarding enterprise Apple distribution.</p>
+            </div>
+
+            <div class="faq-container">
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Is Apple Business Manager free?</span>
+                        <div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>Yes. Completely free.</strong> There are no registration fees, monthly recurring costs, or per-seat charges assessed by Apple for setting up and utilizing Apple Business Manager.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do we need to purchase any Apple subscription?</span>
+                        <div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>No.</strong> You do not need to enroll in the Apple Developer Program ($99/yr) or purchase any Apple enterprise subscriptions. Apple Business Manager is a free standalone portal for end-user organizations.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do we need Mobile Device Management (MDM)?</span>
+                        <div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>No. MDM is completely optional.</strong> Apple Business Manager works perfectly without an MDM solution. While you can connect an MDM if your company uses one (such as Jamf, Intune, or Kandji), it is not a requirement to receive and distribute our application.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Will engineers need new login credentials?</span>
+                        <div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>No.</strong> Engineers will continue using the exact same login credentials already provided by your organization for our service. No changes or resets are required for engineer user accounts.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Will this affect Android users?</span>
+                        <div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>No.</strong> This requirement applies exclusively to the iOS application distributed through Apple's ecosystem. Android users and distribution remain completely unaffected.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Need Assistance Footer Box -->
+        <section class="support-box">
+            <h3>Need Assistance?</h3>
+            <p>If you need assistance creating an Apple Business Manager account or locating your Organization ID, our team will be happy to guide you through the process.</p>
+            
+            <div class="support-signature">
+                <div class="regards">Thank you for your cooperation &bull; Regards,</div>
+                <div class="company">AJS Ltd</div>
+                <div class="team">Support Team</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container" style="padding-top: 0; padding-bottom: 0;">
+            <p>&copy; 2026 AJS Ltd. All rights reserved. Apple and Apple Business Manager are registered trademarks of Apple Inc.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span id="toastMsg">Template copied to clipboard!</span>
+    </div>
+
+    <!-- JavaScript for Logic & Interactions -->
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const moonIcon = document.getElementById('moonIcon');
+        const sunIcon = document.getElementById('sunIcon');
+        const htmlElement = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlElement.setAttribute('data-theme', newTheme);
+            
+            if (newTheme === 'light') {
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            } else {
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+            }
+        });
+
+        // FAQ Accordion Logic
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const isActive = item.classList.contains('active');
+
+            // Close all existing open items
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
+                faq.querySelector('.faq-answer').style.maxHeight = null;
+            });
+
+            // Toggle current if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            }
+        }
+
+        // Live Document Personalization Logic
+        const clientInput = document.getElementById('clientNameInput');
+        const companyInput = document.getElementById('companyNameInput');
+        const clientDisplay = document.getElementById('clientNameDisplay');
+        const companyDisplay = document.getElementById('companyDisplay');
+
+        clientInput.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            clientDisplay.textContent = val ? val : '[Client Name]';
+        });
+
+        companyInput.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            companyDisplay.textContent = val ? val : 'ABC Engineering Ltd';
+        });
+
+        // Copy Template to Clipboard
+        function copyTemplate() {
+            const comp = companyDisplay.textContent;
+            const textToCopy = `Company Name:\n${comp}\n\nOrganization ID:\n[Please insert your 8-digit Apple Org ID here]`;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showToast('Format copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                showToast('Failed to copy text.');
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
