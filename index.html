@@ -576,6 +576,7 @@
         .template-val {
             font-weight: 600;
             color: var(--accent-blue);
+            text-align: right;
         }
 
 
@@ -801,6 +802,143 @@
             color: var(--accent-green);
         }
 
+        /* Layout Structure */
+        .layout-wrapper {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+            width: 100%;
+            position: relative;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar-nav {
+            position: sticky;
+            top: 100px;
+            width: 250px;
+            flex-shrink: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 1.25rem;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(12px);
+            transition: var(--transition);
+        }
+
+        .sidebar-nav:hover {
+            border-color: rgba(0, 113, 227, 0.2);
+            box-shadow: var(--shadow-md);
+        }
+
+        .sidebar-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            padding-left: 0.75rem;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.65rem 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .sidebar-link svg {
+            color: var(--text-dim);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .sidebar-link:hover {
+            background: var(--bg-tertiary);
+            color: var(--accent-blue);
+        }
+
+        .sidebar-link:hover svg {
+            color: var(--accent-blue);
+            transform: translateX(2px);
+        }
+
+        .sidebar-link.active {
+            background: var(--accent-blue-glow);
+            color: var(--accent-blue);
+        }
+
+        .sidebar-link.active svg {
+            color: var(--accent-blue);
+        }
+
+        /* Adjustments for layout on tablets and mobile devices */
+        @media (max-width: 1024px) {
+            .layout-wrapper {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .sidebar-nav {
+                position: sticky;
+                top: 70px;
+                width: 100%;
+                z-index: 90;
+                padding: 0.75rem 1.25rem;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+                margin-bottom: 0.5rem;
+            }
+
+            .sidebar-title {
+                display: none;
+            }
+
+            .sidebar-menu {
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 0.5rem;
+                padding-bottom: 0.25rem;
+                scrollbar-width: none; /* Hide standard scrollbar Firefox */
+            }
+
+            .sidebar-menu::-webkit-scrollbar {
+                display: none; /* Hide scrollbar Safari/Chrome */
+            }
+
+            .sidebar-link {
+                padding: 0.5rem 0.85rem;
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
+        }
+
+        .mistake-card:hover {
+            border-color: var(--accent-amber) !important;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
         /* Print Styling */
         @media print {
             body {
@@ -911,8 +1049,75 @@
             <p class="subtitle">Secure registration and authorization for enterprise iOS app distribution in compliance with Apple's latest guidelines.</p>
         </section>
 
-        <!-- Document Overview -->
-        <section class="letter-box">
+        <!-- Layout Wrapper for sidebar & main content -->
+        <div class="layout-wrapper">
+            
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar-nav no-print">
+                <div class="sidebar-title">Guide Navigation</div>
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="#overview" class="sidebar-link active">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                            <span>Overview</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#why-required" class="sidebar-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            <span>Why Required?</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#what-is-abm" class="sidebar-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            <span>What is ABM?</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#steps" class="sidebar-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                            <span>Setup Steps</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#duns-guidance" class="sidebar-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                            <span>D-U-N-S® Info</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#mistakes" class="sidebar-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            <span>Mistakes to Avoid</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#deployment" class="sidebar-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            <span>App Delivery</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#assurances" class="sidebar-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <span>Assurances</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#faq" class="sidebar-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            <span>FAQs</span>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+
+                <!-- Document Overview -->
+                <section id="overview" class="letter-box">
             <div class="letter-header">
                 <div class="letter-subject">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
@@ -926,7 +1131,7 @@
         </section>
 
         <!-- Why is this required? (Callout box explaining Apple Business Manager requirement) -->
-        <section>
+        <section id="why-required">
             <div class="callout-box">
                 <div class="callout-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
@@ -943,19 +1148,19 @@
                         <ul style="list-style: none; padding-left: 0; display: grid; gap: 0.6rem;">
                             <li style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.925rem; color: var(--text-muted);">
                                 <span style="color: var(--accent-blue); font-weight: bold; flex-shrink: 0; line-height: 1.2;">•</span>
-                                <span><strong>Manual Onboarding:</strong> Client companies are manually onboarded by our team.</span>
+                                <span><strong>Manual Organization Onboarding:</strong> Client organizations are onboarded manually by our team. Organizations cannot sign up or register through the app.</span>
                             </li>
                             <li style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.925rem; color: var(--text-muted);">
                                 <span style="color: var(--accent-blue); font-weight: bold; flex-shrink: 0; line-height: 1.2;">•</span>
-                                <span><strong>No Self-Creation:</strong> Engineers cannot create their own accounts (accounts are created by the client company).</span>
+                                <span><strong>No Self-Registration:</strong> Individual engineers cannot create their own accounts. User accounts are provisioned exclusively by their respective client organization.</span>
                             </li>
                             <li style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.925rem; color: var(--text-muted);">
                                 <span style="color: var(--accent-blue); font-weight: bold; flex-shrink: 0; line-height: 1.2;">•</span>
-                                <span><strong>Exclusive Audience:</strong> Only employees of client companies can use the app.</span>
+                                <span><strong>Restricted Access:</strong> The app is intended solely for employees of approved client organizations.</span>
                             </li>
                             <li style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.925rem; color: var(--text-muted);">
                                 <span style="color: var(--accent-blue); font-weight: bold; flex-shrink: 0; line-height: 1.2;">•</span>
-                                <span><strong>No Public Functionality:</strong> A random person downloading the app cannot use it.</span>
+                                <span><strong>No Public Access:</strong> Users who download the app from the App Store without belonging to an onboarded client organization cannot access or use its functionality.</span>
                             </li>
                         </ul>
                     </div>
@@ -975,7 +1180,7 @@
         </section>
 
         <!-- What is Apple Business Manager -->
-        <section>
+        <section id="what-is-abm">
             <div class="section-header">
                 <h2 class="section-title">
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
@@ -1030,10 +1235,20 @@
                         <div class="step-content">
                             <h3>Create Account</h3>
                             <p>Register for a free Apple Business Manager account via Apple's registration portal using your organization's work email address.</p>
-                            <ul class="card-list">
+                            <ul class="card-list" style="margin-bottom: 1.25rem;">
                                 <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Standard Apple registration</li>
                                 <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> No payment info needed</li>
                             </ul>
+                            
+                            <!-- D-U-N-S Quick Info Link -->
+                            <div style="background: rgba(0, 113, 227, 0.05); border: 1px solid rgba(0, 113, 227, 0.15); border-radius: 8px; padding: 0.85rem; font-size: 0.85rem;">
+                                <span style="display: block; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.25rem;">D-U-N-S® Number Reuse</span>
+                                <span style="color: var(--text-muted); display: block; margin-bottom: 0.5rem; line-height: 1.4;">AJS Ltd already has a D-U-N-S Number. You do NOT need to apply for a new one.</span>
+                                <a href="#duns-guidance" style="color: var(--accent-blue); font-weight: 700; text-decoration: underline; display: inline-flex; align-items: center; gap: 0.25rem;">
+                                    <span>Learn more</span>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </a>
+                            </div>
                         </div>
                         <div class="step-action">
                             <a href="https://business.apple.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; justify-content: center;">
@@ -1053,7 +1268,7 @@
                             <div class="template-box">
                                 <div class="template-row">
                                     <span class="template-label">Company Name:</span>
-                                    <span class="template-val">ABC Corporation <span style="font-weight: normal; opacity: 0.5; font-size: 0.75rem;">(example)</span></span>
+                                    <span class="template-val">AJS Ltd <span style="font-weight: normal; opacity: 0.5; font-size: 0.75rem;">(example)</span></span>
                                 </div>
                                 <div class="template-row">
                                     <span class="template-label">Organization ID:</span>
@@ -1077,11 +1292,161 @@
                     </div>
 
                 </div>
+
+                <!-- D-U-N-S Guidance & Setup Checklist -->
+                <div id="duns-guidance" style="margin-top: 2.5rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.25rem; box-shadow: var(--shadow-md); backdrop-filter: blur(12px); border-left: 5px solid var(--accent-blue); scroll-margin-top: 120px;">
+                    <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        D-U-N-S® Number & Legal Identity Info
+                    </h3>
+                    
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-main); margin-bottom: 1.25rem;">
+                        <strong>No new D-U-N-S® Number is required — you use the same one your organization already has.</strong>
+                    </p>
+
+                    <div style="background: var(--bg-tertiary); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            How it works:
+                        </h4>
+                        <ul style="list-style: none; padding-left: 0; display: grid; gap: 0.8rem; font-size: 0.95rem; color: var(--text-muted);">
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                <span style="color: var(--accent-blue); font-weight: bold; flex-shrink: 0; margin-top: 0.2rem;">•</span>
+                                <span>When you enrolled <strong>AJS Ltd</strong> in the <strong>Apple Developer Program</strong>, Apple verified your organization using its D-U-N-S Number.</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                <span style="color: var(--accent-blue); font-weight: bold; flex-shrink: 0; margin-top: 0.2rem;">•</span>
+                                <span><strong>Apple Business Manager (ABM)</strong> also uses your organization's legal identity. During enrollment, Apple may ask for your organization's details, but since your company already has a D-U-N-S Number, you <strong>reuse the same D-U-N-S Number</strong>. You do <strong>not</strong> apply for a new one.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                        
+                        <!-- Your Situation Card -->
+                        <div style="background: rgba(5, 150, 105, 0.03); border: 1px solid rgba(5, 150, 105, 0.2); border-radius: var(--radius-md); padding: 1.25rem;">
+                            <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                Your Situation (AJS Ltd)
+                            </h4>
+                            <ul style="list-style: none; padding-left: 0; display: grid; gap: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                                <li style="display: flex; align-items: center; gap: 0.5rem; justify-content: space-between;">
+                                    <span style="font-weight: 600;">Organization:</span> <span>AJS Ltd</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 0.5rem; justify-content: space-between;">
+                                    <span style="font-weight: 600;">Apple Developer Program:</span> <span style="color: var(--accent-green); font-weight: 700;">✓ Verified</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 0.5rem; justify-content: space-between;">
+                                    <span style="font-weight: 600;">Organization Account:</span> <span style="color: var(--accent-green); font-weight: 700;">✓ Verified</span>
+                                </li>
+                                <li style="display: flex; align-items: flex-start; gap: 0.5rem; border-top: 1px solid rgba(148, 163, 184, 0.1); padding-top: 0.75rem; margin-top: 0.5rem; line-height: 1.4; font-size: 0.85rem;">
+                                    <span>Your company already has a valid D-U-N-S Number. When registering for Apple Business Manager, Apple will verify <strong>AJS Ltd</strong> again using the same company information. They may ask you to enter or confirm the D-U-N-S Number, but it is the <strong>existing</strong> one.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- What you'll need Card -->
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                            <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem;">
+                                What you'll typically need for ABM
+                            </h4>
+                            <ul style="list-style: none; padding-left: 0; display: grid; gap: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                                <li style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Legal company name (AJS Ltd)</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Existing D-U-N-S Number</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Company website & phone number</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>Business email address</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <span>A person authorized to enroll</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div style="background: rgba(217, 119, 6, 0.05); border-left: 4px solid var(--accent-amber); border-radius: var(--radius-sm); padding: 1.25rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">
+                        <h5 style="font-weight: 700; color: var(--accent-amber); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            Key Distinction on Identifiers:
+                        </h5>
+                        After approval, Apple will provide your company with an <strong>Apple Business Manager Organization ID</strong>, which is completely different from:
+                        <div style="margin-top: 0.5rem; display: flex; gap: 1.5rem; font-size: 0.9rem; font-weight: 600; color: var(--text-main); flex-wrap: wrap;">
+                            <span style="color: #dc2626; display: flex; align-items: center; gap: 0.25rem;">❌ Team ID <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: normal; opacity: 0.75;">(XT7QDKAWCP)</span></span>
+                            <span style="color: #dc2626; display: flex; align-items: center; gap: 0.25rem;">❌ D-U-N-S Number</span>
+                        </div>
+                        <div style="margin-top: 0.5rem;">
+                            The <strong>Organization ID</strong> is what you will use in App Store Connect for Custom App distribution.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Common Enrollment Mistakes to Avoid -->
+        <section id="mistakes" style="margin-bottom: 3rem;">
+            <div class="section-header" style="margin-bottom: 1.5rem;">
+                <h2 class="section-title">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    Common Enrollment Mistakes to Avoid
+                </h2>
+                <p class="section-subtitle">Ensure a seamless verification by keeping these key best practices in mind.</p>
+            </div>
+
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; box-shadow: var(--shadow-sm); max-width: 800px;">
+                <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                    <span style="color: #ef4444; font-weight: bold; font-size: 1.1rem; line-height: 1.2;">❌</span>
+                    <div>
+                        <strong style="color: var(--text-main); font-size: 0.925rem; display: block; margin-bottom: 0.15rem;">No Personal Accounts</strong>
+                        <span style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; display: block;">Enroll using your company's legal information, not a personal account.</span>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 0.75rem; align-items: flex-start; border-top: 1px solid rgba(148,163,184,0.1); padding-top: 0.85rem;">
+                    <span style="color: #ef4444; font-weight: bold; font-size: 1.1rem; line-height: 1.2;">❌</span>
+                    <div>
+                        <strong style="color: var(--text-main); font-size: 0.925rem; display: block; margin-bottom: 0.15rem;">Legal Company Name</strong>
+                        <span style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; display: block;">Enter <code>AJS Ltd</code> exactly as registered (avoid shorthand like <code>AJS</code> or <code>AJS UK</code>).</span>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 0.75rem; align-items: flex-start; border-top: 1px solid rgba(148,163,184,0.1); padding-top: 0.85rem;">
+                    <span style="color: #ef4444; font-weight: bold; font-size: 1.1rem; line-height: 1.2;">❌</span>
+                    <div>
+                        <strong style="color: var(--text-main); font-size: 0.925rem; display: block; margin-bottom: 0.15rem;">Reuse Existing D-U-N-S</strong>
+                        <span style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; display: block;">Use your company's existing D-U-N-S Number from your Developer account. Do not get a new one.</span>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 0.75rem; align-items: flex-start; border-top: 1px solid rgba(148,163,184,0.1); padding-top: 0.85rem;">
+                    <span style="color: #ef4444; font-weight: bold; font-size: 1.1rem; line-height: 1.2;">❌</span>
+                    <div>
+                        <strong style="color: var(--text-main); font-size: 0.925rem; display: block; margin-bottom: 0.15rem;">Business Email Address</strong>
+                        <span style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; display: block;">Must use a corporate email (e.g., <code>admin@company.com</code>). Gmail/Outlook are not accepted.</span>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 0.75rem; align-items: flex-start; border-top: 1px solid rgba(148,163,184,0.1); padding-top: 0.85rem;">
+                    <span style="color: #ef4444; font-weight: bold; font-size: 1.1rem; line-height: 1.2;">❌</span>
+                    <div>
+                        <strong style="color: var(--text-main); font-size: 0.925rem; display: block; margin-bottom: 0.15rem;">Match Company Details</strong>
+                        <span style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.45; display: block;">Company name, address, and website must match official registration records exactly.</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- How employees receive the app -->
-        <section>
+        <section id="deployment">
             <div class="section-header">
                 <h2 class="section-title">
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -1133,7 +1498,7 @@
         </section>
 
         <!-- Employee Scale & Assurances -->
-        <section>
+        <section id="assurances">
             <div class="grid-2">
                 <div class="card">
                     <div class="card-icon icon-amber">
@@ -1155,8 +1520,10 @@
             </div>
         </section>
 
+
+
         <!-- FAQ Section -->
-        <section>
+        <section id="faq">
             <div class="section-header">
                 <h2 class="section-title">
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
@@ -1175,6 +1542,18 @@
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
                             <strong>Yes. Completely free.</strong> There are no registration fees, monthly recurring costs, or per-seat charges assessed by Apple for setting up and utilizing Apple Business Manager.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do we need to obtain a new D-U-N-S® Number?</span>
+                        <div class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>No.</strong> Your company, <strong>AJS Ltd</strong>, already has a valid and verified D-U-N-S® Number from enrolling in the Apple Developer Program. During Apple Business Manager registration, you simply <strong>reuse the same D-U-N-S® Number</strong>. You do <strong>not</strong> need to apply for a new one.
                         </div>
                     </div>
                 </div>
@@ -1219,7 +1598,8 @@
             </div>
         </section>
 
-
+            </div> <!-- End of .main-content -->
+        </div> <!-- End of .layout-wrapper -->
 
     </main>
 
@@ -1266,6 +1646,70 @@
                 toast.classList.remove('show');
             }, 3000);
         }
+
+        // Intersection Observer to highlight active sidebar menu item
+        const observerOptions = {
+            root: null,
+            rootMargin: '-120px 0px -45% 0px', // trigger when section enters upper-middle viewport
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    if (id) {
+                        document.querySelectorAll('.sidebar-link').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                                // Scroll the sidebar menu to show active item in horizontal scroll mode
+                                if (window.innerWidth <= 1024) {
+                                    link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Track all sections
+        const sectionIds = [
+            'overview',
+            'why-required',
+            'what-is-abm',
+            'steps',
+            'duns-guidance',
+            'mistakes',
+            'deployment',
+            'assurances',
+            'faq'
+        ];
+
+        sectionIds.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        // Smooth scroll adjustment for header offset
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    const offset = window.innerWidth <= 1024 ? 140 : 100;
+                    const elementPosition = targetEl.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
